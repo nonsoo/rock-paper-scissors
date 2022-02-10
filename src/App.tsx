@@ -11,6 +11,12 @@ import Paper from "./imgs/icon-paper.svg";
 import Rock from "./imgs/icon-rock.svg";
 import Scissors from "./imgs/icon-scissors.svg";
 
+interface movePictures {
+  Paper: string;
+  Rock: string;
+  Scissors: string;
+}
+
 const App: FC = () => {
   const [gameState, setGameState] = useState<boolean>(true);
   const [gameStatuss, setGameStatuss] = useState<string>("");
@@ -19,14 +25,16 @@ const App: FC = () => {
 
   type move = "Scissors" | "Paper" | "Rock";
 
+  const possibleMovesPictures: movePictures = {
+    Paper,
+    Rock,
+    Scissors,
+  };
+
   const possibleMoves: move[] = ["Scissors", "Paper", "Rock"];
+  const compMove: number = Math.floor(Math.random() * possibleMoves.length);
 
   const gameFunc = (): void => {
-    const compMove: number = Math.floor(Math.random() * possibleMoves.length);
-
-    console.log(`This is the comps move: ${possibleMoves[compMove]}`);
-    console.log(`this is the users move: ${userMoves}`);
-
     if (
       (userMoves === possibleMoves[0] &&
         possibleMoves[compMove] === possibleMoves[1]) ||
@@ -74,7 +82,7 @@ const App: FC = () => {
         ) : (
           <Results
             img={Paper}
-            img2={Rock}
+            img2={possibleMovesPictures[possibleMoves[compMove]]}
             setGame={setGameState}
             gameStatus={gameStatuss}
           />
