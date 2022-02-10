@@ -5,14 +5,24 @@ interface Props {
   exCss?: string;
   exId?: string;
   setGame: React.Dispatch<React.SetStateAction<boolean>>;
-  refs: React.MutableRefObject<HTMLImageElement | null>;
+  setUserMoveFunc: React.Dispatch<
+    React.SetStateAction<string | undefined | null>
+  >;
   gameMove: () => void;
 }
 
-const Option: FC<Props> = ({ img, exCss, setGame, gameMove, exId, refs }) => {
+const Option: FC<Props> = ({
+  img,
+  exCss,
+  setGame,
+  gameMove,
+  exId,
+  setUserMoveFunc,
+}) => {
   const execute = (): void => {
     setGame(false);
     gameMove();
+    setUserMoveFunc(exId);
   };
   return (
     <>
@@ -22,7 +32,6 @@ const Option: FC<Props> = ({ img, exCss, setGame, gameMove, exId, refs }) => {
         className={`imgClass ${exCss}`}
         onClick={() => execute()}
         id={exId}
-        ref={refs}
       />
     </>
   );

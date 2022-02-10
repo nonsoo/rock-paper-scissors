@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from "react";
+import { FC, useState } from "react";
 import "./css/layout.css";
 import "./css/header.css";
 import "./css/optionComp.css";
@@ -13,44 +13,62 @@ import Scissors from "./imgs/icon-scissors.svg";
 
 const App: FC = () => {
   const [gameState, setGameState] = useState<boolean>(true);
-  const userInput = useRef<HTMLImageElement | null>(null);
+  const [gameStatuss, setGameStatuss] = useState<string>("");
+  const [userMoves, setUserMove] = useState<string | null | undefined>(null);
+  const [score, setScore] = useState<number>(0);
+
   type move = "Scissors" | "Paper" | "Rock";
 
   const possibleMoves: move[] = ["Scissors", "Paper", "Rock"];
 
-  console.log(userInput.current);
-
   const gameFunc = (): void => {
     const compMove: number = Math.floor(Math.random() * possibleMoves.length);
 
-    console.log(compMove);
+    console.log(`This is the comps move: ${possibleMoves[compMove]}`);
+    console.log(`this is the users move: ${userMoves}`);
+
+    if (
+      (userMoves === possibleMoves[0] &&
+        possibleMoves[compMove] === possibleMoves[1]) ||
+      (userMoves === possibleMoves[1] &&
+        possibleMoves[compMove] === possibleMoves[2]) ||
+      (userMoves === possibleMoves[2] &&
+        possibleMoves[compMove] === possibleMoves[0])
+    ) {
+      setGameStatuss("you win");
+      setScore((prev) => prev + 1);
+    } else if (userMoves === possibleMoves[compMove]) {
+      setGameStatuss("its a tie");
+    } else {
+      setGameStatuss("you lose");
+    }
   };
   return (
     <div className="Game--site">
       <div className="Game">
-        <Header />
+        <Header currScore={score} />
         {gameState ? (
           <div className="options">
             <Options
               img={Rock}
               setGame={setGameState}
               gameMove={gameFunc}
-              exId="rock"
-              refs={userInput}
+              exId="Rock"
+              setUserMoveFunc={setUserMove}
             />
             <Options
               img={Scissors}
               setGame={setGameState}
               gameMove={gameFunc}
-              exId="scissors"
-              refs={userInput}
+              exId="Scissors"
+              setUserMoveFunc={setUserMove}
             />
             <Options
               img={Paper}
               setGame={setGameState}
               gameMove={gameFunc}
-              exId="paper"
-              refs={userInput}
+              exId="Paper"
+              setUserMoveFunc={setUserMove}
             />
           </div>
         ) : (
@@ -58,7 +76,7 @@ const App: FC = () => {
             img={Paper}
             img2={Rock}
             setGame={setGameState}
-            gameStatus="you win"
+            gameStatus={gameStatuss}
           />
         )}
       </div>
