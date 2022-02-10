@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import "./css/layout.css";
 import "./css/header.css";
 import "./css/optionComp.css";
@@ -13,18 +13,53 @@ import Scissors from "./imgs/icon-scissors.svg";
 
 const App: FC = () => {
   const [gameState, setGameState] = useState<boolean>(true);
+  const userInput = useRef<HTMLImageElement | null>(null);
+  type move = "Scissors" | "Paper" | "Rock";
+
+  const possibleMoves: move[] = ["Scissors", "Paper", "Rock"];
+
+  console.log(userInput.current);
+
+  const gameFunc = (): void => {
+    const compMove: number = Math.floor(Math.random() * possibleMoves.length);
+
+    console.log(compMove);
+  };
   return (
     <div className="Game--site">
       <div className="Game">
         <Header />
         {gameState ? (
           <div className="options">
-            <Options img={Paper} setGame={setGameState} />
-            <Options img={Scissors} setGame={setGameState} />
-            <Options img={Rock} setGame={setGameState} />
+            <Options
+              img={Rock}
+              setGame={setGameState}
+              gameMove={gameFunc}
+              exId="rock"
+              refs={userInput}
+            />
+            <Options
+              img={Scissors}
+              setGame={setGameState}
+              gameMove={gameFunc}
+              exId="scissors"
+              refs={userInput}
+            />
+            <Options
+              img={Paper}
+              setGame={setGameState}
+              gameMove={gameFunc}
+              exId="paper"
+              refs={userInput}
+            />
           </div>
         ) : (
-          <Results img={Paper} img2={Rock} setGame={setGameState} />
+          <Results
+            img={Paper}
+            img2={Rock}
+            setGame={setGameState}
+            gameStatus="you win"
+          />
         )}
       </div>
     </div>

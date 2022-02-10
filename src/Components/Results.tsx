@@ -5,9 +5,10 @@ interface Props {
   setGame: React.Dispatch<React.SetStateAction<boolean>>;
   img: string;
   img2: string;
+  gameStatus: string;
 }
 
-const Results: FC<Props> = ({ setGame, img, img2 }) => {
+const Results: FC<Props> = ({ setGame, img, img2, gameStatus }) => {
   return (
     <section className="ResultsSection">
       <div className="ResultChoise player1">
@@ -16,7 +17,7 @@ const Results: FC<Props> = ({ setGame, img, img2 }) => {
       </div>
 
       <div className="gameStatus">
-        <p className="gameStatus__Name">You Win</p>
+        <p className="gameStatus__Name">{gameStatus}</p>
         <button className="gameStatus__Btn" onClick={() => setGame(true)}>
           Play Again
         </button>
