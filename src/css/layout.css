@@ -1,0 +1,57 @@
+@import url("https://fonts.google.com/specimen/Barlow+Semi+Condensed");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* This is for the variablesd */
+  --test: dssd;
+
+  /* font family */
+  --ff-prmy: "Barlow Semi Condensed", sans-serif;
+
+  /* font-weight */
+  --fw-prmy: 600;
+  --fw-sec: 700;
+
+  /* font--size */
+  --fs-prmy: 1.5rem;
+  --fs-sec: 2rem;
+  --fs-tri: 3rem;
+
+  /* Colours */
+  --col-text-prmy: hsl(229, 25%, 31%);
+  --col-text-sec: hsl(229, 64%, 46%);
+  --col-text-tri: hsl(217, 16%, 45%);
+
+  --Scissors-Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+  --Paper-Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+  --Rock-Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+  --Lizard-Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+  --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+  --col-background-start: hsl(214, 47%, 23%);
+  --col-background-end: hsl(237, 49%, 15%);
+}
+
+.Game--site {
+  padding: 3rem;
+  margin: 0 auto;
+
+  font-size: var(--fs-prmy);
+  font-family: var(--ff-prmy);
+  font-weight: var(--fw-prmy);
+
+  height: 100vh;
+
+  background: radial-gradient(
+    var(--col-background-start),
+    var(--col-background-end)
+  );
+
+  color: var(--col-text-prmy);
+}

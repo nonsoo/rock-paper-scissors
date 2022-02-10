@@ -1,9 +1,9 @@
 import { FC } from "react";
-import "./css/App.css";
+import "./css/layout.css";
 
 const App: FC = () => {
   return (
-    <div className="App">
+    <div className="Game--site">
       <p className="test">hellow there</p>
     </div>
   );
