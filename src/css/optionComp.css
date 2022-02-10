@@ -1,0 +1,21 @@
+.imgClass {
+  padding: 2.5em;
+  background-color: var(--col-text-acc);
+
+  border-radius: 50%;
+  border: 25px solid blue;
+  width: clamp(150px, 35%, 300px);
+
+  cursor: pointer;
+}
+
+.imgClass:first-child {
+  border: 25px solid var(--Paper-Gradient-start);
+}
+.imgClass:nth-child(2) {
+  border: 25px solid var(--Scissors-Gradient-start);
+}
+
+.imgClass:last-child {
+  border: 25px solid var(--Rock-Gradient-start);
+}

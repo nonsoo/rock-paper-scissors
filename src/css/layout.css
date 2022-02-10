@@ -19,19 +19,23 @@
   --fw-sec: 700;
 
   /* font--size */
-  --fs-prmy: 1.5rem;
-  --fs-sec: 2rem;
-  --fs-tri: 3rem;
+  --fs-prmy: 0.7rem;
+  --fs-sec: 1.25rem;
+  --fs-tri: 2rem;
 
   /* Colours */
   --col-text-prmy: hsl(229, 25%, 31%);
   --col-text-sec: hsl(229, 64%, 46%);
   --col-text-tri: hsl(217, 16%, 45%);
+  --col-text-acc: rgb(255, 255, 255);
 
-  --Scissors-Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-  --Paper-Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-  --Rock-Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-  --Lizard-Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+  --Scissors-Gradient-start: hsl(39, 89%, 49%);
+  --Scissors-Gradient-end: hsl(40, 84%, 53%);
+  --Paper-Gradient-start: hsl(230, 89%, 62%);
+  --Paper-Gradient-end: hsl(230, 89%, 65%);
+  --Rock-Gradient-start: hsl(349, 71%, 52%);
+  --Rock-Gradient-end: hsl(349, 70%, 56%);
+
   --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
 
   --col-background-start: hsl(214, 47%, 23%);
@@ -39,19 +43,45 @@
 }
 
 .Game--site {
-  padding: 3rem;
-  margin: 0 auto;
+  padding: 1.5rem;
 
   font-size: var(--fs-prmy);
   font-family: var(--ff-prmy);
   font-weight: var(--fw-prmy);
-
-  height: 100vh;
+  color: var(--col-text-acc);
+  min-height: 100vh;
 
   background: radial-gradient(
     var(--col-background-start),
     var(--col-background-end)
   );
+}
 
-  color: var(--col-text-prmy);
+.Game {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  place-items: center;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    --fs-prmy: 1.5rem;
+    --fs-sec: 2rem;
+    --fs-tri: 3rem;
+  }
+
+  .Game--site {
+    padding: 3rem;
+  }
 }

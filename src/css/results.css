@@ -1,0 +1,40 @@
+.ResultsSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 5rem;
+}
+.resultChoise__player,
+.gameStatus__Name {
+  text-transform: uppercase;
+  text-align: center;
+}
+.ResultChoise {
+  display: grid;
+  place-items: center;
+  gap: 1em;
+}
+
+.gameStatus__Name {
+  font-size: var(--fs-sec);
+}
+
+.gameStatus__Btn {
+  border: none;
+  padding: 0.5em 1.25em;
+  font-size: var(--fs-prmy);
+  text-align: center;
+  text-transform: uppercase;
+
+  width: 100%;
+
+  border-radius: 7px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+.resultChoise__Option {
+  cursor: default;
+}
