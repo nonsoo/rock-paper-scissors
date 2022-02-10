@@ -24,7 +24,7 @@ const App: FC = () => {
             <Options img={Rock} setGame={setGameState} />
           </div>
         ) : (
-          <Results img={Paper} setGame={setGameState} />
+          <Results img={Paper} img2={Rock} setGame={setGameState} />
         )}
       </div>
     </div>

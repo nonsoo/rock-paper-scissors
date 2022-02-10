@@ -4,14 +4,15 @@ import OptionResults from "./OptionResults";
 interface Props {
   setGame: React.Dispatch<React.SetStateAction<boolean>>;
   img: string;
+  img2: string;
 }
 
-const Results: FC<Props> = ({ setGame, img }) => {
+const Results: FC<Props> = ({ setGame, img, img2 }) => {
   return (
     <section className="ResultsSection">
-      <div className="ResultChoise">
+      <div className="ResultChoise player1">
         <p className="resultChoise__player">You Picked</p>
-        <OptionResults img={img} />
+        <OptionResults img={img} exCss="paper" />
       </div>
 
       <div className="gameStatus">
@@ -20,9 +21,9 @@ const Results: FC<Props> = ({ setGame, img }) => {
           Play Again
         </button>
       </div>
-      <div className="ResultChoise">
+      <div className="ResultChoise player2">
         <p className="resultChoise__player">The house picked</p>
-        <OptionResults img={img} />
+        <OptionResults img={img2} exCss="rock" />
       </div>
     </section>
   );

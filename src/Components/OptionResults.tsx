@@ -7,7 +7,7 @@ interface Props {
 const OptionResults: FC<Props> = ({ img, exCss }) => {
   return (
     <>
-      <img src={img} alt="" className={`imgClass ${exCss}`} />
+      <img src={img} alt="" className={`ResultOptionImg ${exCss}`} />
     </>
   );
 };

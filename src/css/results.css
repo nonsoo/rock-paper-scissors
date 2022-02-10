@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 
   width: 100%;
   margin-top: 5rem;
@@ -16,9 +17,21 @@
   place-items: center;
   gap: 1em;
 }
+.player1 {
+  order: 1;
+}
+
+.player2 {
+  order: 2;
+}
+
+.gameStatus {
+  order: 3;
+  margin-top: 3rem;
+}
 
 .gameStatus__Name {
-  font-size: var(--fs-sec);
+  font-size: var(--fs-tri);
 }
 
 .gameStatus__Btn {
@@ -37,4 +50,39 @@
 
 .resultChoise__Option {
   cursor: default;
+  max-width: 100%;
+}
+
+.ResultOptionImg {
+  padding: 2.5em;
+  background-color: var(--col-text-acc);
+
+  border-radius: 50%;
+  border: 25px solid blue;
+  width: clamp(200px, 75%, 400px);
+
+  cursor: pointer;
+}
+
+.rock {
+  border: 25px solid var(--Rock-Gradient-start);
+}
+
+.paper {
+  border: 25px solid var(--Paper-Gradient-start);
+}
+
+.scissors {
+  border: 25px solid var(--Scissors-Gradient-start);
+}
+
+@media screen and (min-width: 800px) {
+  .player2 {
+    order: 3;
+  }
+
+  .gameStatus {
+    order: 2;
+    margin-top: 0;
+  }
 }
